@@ -30,7 +30,7 @@ export default function ServicesPage() {
       ],
       materials: ["Stainless Steel (SS304, SS316L, 17-4 PH)", "Alloy Steels (EN8, EN19, EN24, EN31)", "Aluminum Alloys (6061-T6, 7075-T6)", "Brass, Bronze & Copper", "Engineering Plastics (Delrin, PEEK, Nylon)"],
       applications: ["Aerospace tooling & fixture jigs", "Automotive transmission prototypes", "Hydraulic manifold blocks", "Medical device housing assemblies"],
-      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80"
     },
     {
       id: "fabrication",
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       ],
       materials: ["Structural Carbon Steel (IS 2062 Grade A/B/E250/E350)", "Boiler Quality Steel (SA 516 Gr 70)", "Wear Resistant Steel (Hardox 400/500)", "Austenitic Stainless Steel (SS304/SS316)"],
       applications: ["Heavy equipment base frames & chassis", "Skid mounted process modules", "Material handling conveyor gantries", "Cement & mining plant ducting"],
-      image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
     },
     {
       id: "laser",
@@ -58,7 +58,7 @@ export default function ServicesPage() {
       ],
       materials: ["Mild Steel (CRCA, HR, IS 2062)", "Stainless Steel (2B, No. 4, Mirror)", "Aluminum Sheets (1050, 5052, 6082)", "Copper & Brass Shims"],
       applications: ["Control panel enclosures & cabinets", "Perforated architectural facade panels", "Heavy equipment bracketry & gussets", "Custom sheet metal chassis"],
-      image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=800&q=80"
     },
     {
       id: "spares",
@@ -72,7 +72,7 @@ export default function ServicesPage() {
       ],
       materials: ["Tool Steels (D2, D3, H13, O1)", "High Tensile Alloy Steels", "Phosphor Bronze (PB1, PB2)", "Tungsten Carbide wear inserts"],
       applications: ["Industrial gearboxes & spline shafts", "High pressure pump impellers & sleeves", "Extruder screws & barrel liners", "Stamping dies & punch sets"],
-      image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
