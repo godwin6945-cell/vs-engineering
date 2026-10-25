@@ -136,24 +136,19 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Trust Badges */}
-              <div className="pt-6 border-t border-navy-800/80 grid grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <div className="text-2xl font-mono font-bold text-orange-400">±0.005mm</div>
-                  <div className="text-xs text-steel-400">Precision Tolerance</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-mono font-bold text-white">4 Hours</div>
-                  <div className="text-xs text-steel-400">Avg. Quote Time</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-mono font-bold text-white">45,000+</div>
-                  <div className="text-xs text-steel-400">Components Delivered</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-mono font-bold text-emerald-400">100%</div>
-                  <div className="text-xs text-steel-400">MTC Material Traceability</div>
-                </div>
+              {/* Trust Badges / Stats */}
+              <div className="pt-5 border-t border-navy-800/80 grid grid-cols-2 gap-2 sm:gap-3">
+                {[
+                  { val: "±0.005mm", label: "Precision Tolerance", color: "text-orange-400" },
+                  { val: "4 Hours", label: "Avg. Quote Time", color: "text-white" },
+                  { val: "45,000+", label: "Components Delivered", color: "text-white" },
+                  { val: "100%", label: "MTC Traceability", color: "text-emerald-400" },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-navy-900/60 border border-navy-700/50 rounded-xl p-3 sm:p-4">
+                    <div className={`text-lg sm:text-2xl font-mono font-bold ${stat.color}`}>{stat.val}</div>
+                    <div className="text-[10px] sm:text-xs text-steel-400 mt-0.5 leading-tight">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
