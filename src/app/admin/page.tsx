@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState<string | null>(null);
   const [adminEmail, setAdminEmail] = useState("godwin6945@gmail.com");
-  const [adminPassword, setAdminPassword] = useState("AdminPassword123!");
+  const [adminPassword, setAdminPassword] = useState("godwin@2007");
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [needsAuth, setNeedsAuth] = useState(false);
 
