@@ -161,14 +161,14 @@ export default function GalleryPage() {
       <section className="py-12 bg-steel-50 dark:bg-navy-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2 pb-2">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 sm:flex-wrap">
             {categories.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setSelectedCategory(c.id)}
-                className={`px-4 py-2 rounded-full text-xs font-mono font-medium transition-all ${
+                className={`px-3.5 py-2 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
                   selectedCategory === c.id
-                    ? "bg-navy-900 text-white dark:bg-orange-500 shadow-md"
+                    ? "bg-navy-900 text-white dark:bg-orange-500 shadow-md font-bold"
                     : "bg-white dark:bg-navy-950 text-steel-700 dark:text-steel-300 border border-steel-200 dark:border-steel-800 hover:border-steel-400"
                 }`}
               >
@@ -238,7 +238,7 @@ export default function GalleryPage() {
           onClick={() => setActiveItem(null)}
         >
           <div
-            className="w-full max-w-3xl bg-white dark:bg-navy-900 rounded-2xl border border-steel-200 dark:border-steel-800 overflow-hidden shadow-2xl animate-in zoom-in-95"
+            className="w-full max-w-3xl bg-white dark:bg-navy-900 rounded-2xl border border-steel-200 dark:border-steel-800 overflow-hidden shadow-2xl animate-in zoom-in-95 max-h-[92vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-[16/9] bg-steel-950">
@@ -249,27 +249,28 @@ export default function GalleryPage() {
               />
               <button
                 onClick={() => setActiveItem(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-navy-900/80 text-white hover:bg-navy-900 transition-colors"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-navy-900/80 text-white hover:bg-navy-900 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="absolute bottom-4 left-4">
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                 <Badge variant="orange">{activeItem.categoryLabel}</Badge>
               </div>
             </div>
 
-            <div className="p-6 space-y-4">
-              <div className="flex items-start justify-between gap-4">
+            <div className="p-4 sm:p-6 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
                 <div>
-                  <h3 className="text-2xl font-display font-bold text-navy-900 dark:text-steel-100">
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-navy-900 dark:text-steel-100">
                     {activeItem.title}
                   </h3>
                   <p className="text-xs font-mono text-steel-500 mt-1">
                     Delivered to: {activeItem.industry} • {activeItem.location}
                   </p>
                 </div>
-                <Link href={`/quote?ref=${activeItem.id}`}>
-                  <Button variant="orange" size="sm">
+                <Link href={`/quote?ref=${activeItem.id}`} className="w-full sm:w-auto">
+                  <Button variant="orange" size="sm" className="w-full justify-center">
                     <FileText className="w-4 h-4 mr-1" />
                     Quote Similar Part
                   </Button>

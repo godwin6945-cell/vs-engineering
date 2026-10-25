@@ -382,13 +382,13 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-xl overflow-hidden border border-steel-200 dark:border-steel-800 shadow-md">
                     <img
                       src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80"
                       alt="Welding fabrication workshop"
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-5 rounded-xl bg-navy-900 text-white space-y-2 border border-navy-800">
@@ -400,7 +400,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-6">
+                <div className="space-y-4 sm:pt-6">
                   <div className="p-5 rounded-xl bg-white dark:bg-navy-950 border border-steel-200 dark:border-steel-800 space-y-2 shadow-sm">
                     <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400">On-Time Metric</span>
                     <h4 className="text-2xl font-mono font-bold text-navy-900 dark:text-white">99.4%</h4>
@@ -412,10 +412,75 @@ export default function HomePage() {
                     <img
                       src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80"
                       alt="CMM machine inspection"
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Workshop Snapshot Grid */}
+      <section className="py-12 bg-navy-950 text-white border-y border-navy-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-3">
+            <div>
+              <span className="text-xs font-mono text-orange-400 uppercase tracking-widest font-bold">Shop Floor Infrastructure</span>
+              <h3 className="text-2xl font-display font-black text-white mt-0.5">Inside VS Engineering Works • Coimbatore</h3>
+            </div>
+            <Link href="/gallery" className="text-xs font-mono text-orange-400 hover:text-orange-300 flex items-center gap-1 font-semibold">
+              Browse Full 2026 Portfolio <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div className="group relative rounded-xl overflow-hidden border border-navy-800 aspect-[4/3] bg-navy-900">
+              <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                alt="5-Axis CNC Milling Center"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-2 left-2 right-2 text-[11px] font-mono font-semibold text-white truncate">
+                5-Axis Machining Bay
+              </div>
+            </div>
+
+            <div className="group relative rounded-xl overflow-hidden border border-navy-800 aspect-[4/3] bg-navy-900">
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                alt="Robotic Submerged Arc Welding"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-2 left-2 right-2 text-[11px] font-mono font-semibold text-white truncate">
+                Heavy Structural Cell
+              </div>
+            </div>
+
+            <div className="group relative rounded-xl overflow-hidden border border-navy-800 aspect-[4/3] bg-navy-900">
+              <img
+                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80"
+                alt="Precision Lathe Turning"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-2 left-2 right-2 text-[11px] font-mono font-semibold text-white truncate">
+                CNC Turning Line
+              </div>
+            </div>
+
+            <div className="group relative rounded-xl overflow-hidden border border-navy-800 aspect-[4/3] bg-navy-900">
+              <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                alt="Zeiss 3D CMM Metrology Lab"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-2 left-2 right-2 text-[11px] font-mono font-semibold text-white truncate">
+                Zeiss CMM QC Lab
               </div>
             </div>
           </div>
@@ -433,43 +498,58 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="p-6 space-y-4">
+            <Card className="p-6 space-y-4 hover-lift transition-smooth">
               <div className="text-orange-500 font-mono text-sm">★★★★★</div>
               <p className="text-sm text-steel-700 dark:text-steel-300 leading-relaxed italic">
                 &ldquo;VS Engineering fabricated 12 heavy base frames for our automated stamping line. The dimensional accuracy on mounting holes and weld quality exceeded our automotive OEM inspection criteria.&rdquo;
               </p>
-              <div className="pt-2 border-t border-steel-100 dark:border-steel-800 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-navy-900 dark:text-white">Rajesh Kulkarni</h4>
-                  <p className="text-[11px] text-steel-500">VP Operations, Precision Auto Pune</p>
+              <div className="pt-3 border-t border-steel-100 dark:border-steel-800 flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                  alt="Rajesh Kulkarni"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30 shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs font-bold text-navy-900 dark:text-white truncate">Rajesh Kulkarni</h4>
+                  <p className="text-[11px] text-steel-500 truncate">VP Operations, Precision Auto</p>
                 </div>
                 <Badge variant="outline" size="sm">Pune, MH</Badge>
               </div>
             </Card>
 
-            <Card className="p-6 space-y-4">
+            <Card className="p-6 space-y-4 hover-lift transition-smooth">
               <div className="text-orange-500 font-mono text-sm">★★★★★</div>
               <p className="text-sm text-steel-700 dark:text-steel-300 leading-relaxed italic">
                 &ldquo;Their online quote submission and drawing revision process made procurement seamless. We tracked our CNC milled titanium brackets from raw material testing to final dispatch via their portal.&rdquo;
               </p>
-              <div className="pt-2 border-t border-steel-100 dark:border-steel-800 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-navy-900 dark:text-white">Vikram Menon</h4>
-                  <p className="text-[11px] text-steel-500">Lead Procurement, AeroTech India</p>
+              <div className="pt-3 border-t border-steel-100 dark:border-steel-800 flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                  alt="Vikram Menon"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30 shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs font-bold text-navy-900 dark:text-white truncate">Vikram Menon</h4>
+                  <p className="text-[11px] text-steel-500 truncate">Lead Procurement, AeroTech</p>
                 </div>
                 <Badge variant="outline" size="sm">Bengaluru, KA</Badge>
               </div>
             </Card>
 
-            <Card className="p-6 space-y-4">
+            <Card className="p-6 space-y-4 hover-lift transition-smooth">
               <div className="text-orange-500 font-mono text-sm">★★★★★</div>
               <p className="text-sm text-steel-700 dark:text-steel-300 leading-relaxed italic">
                 &ldquo;When our crushing unit experienced a catastrophic spindle failure, VS Engineering manufactured custom EN24 spline shafts within 48 hours, saving our plant lakhs of rupees in idle downtime.&rdquo;
               </p>
-              <div className="pt-2 border-t border-steel-100 dark:border-steel-800 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-navy-900 dark:text-white">Ananya Deshmukh</h4>
-                  <p className="text-[11px] text-steel-500">Plant Head, Heavy Infra Minerals</p>
+              <div className="pt-3 border-t border-steel-100 dark:border-steel-800 flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
+                  alt="Ananya Deshmukh"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30 shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs font-bold text-navy-900 dark:text-white truncate">Ananya Deshmukh</h4>
+                  <p className="text-[11px] text-steel-500 truncate">Plant Head, Heavy Infra Minerals</p>
                 </div>
                 <Badge variant="outline" size="sm">Ahmedabad, GJ</Badge>
               </div>

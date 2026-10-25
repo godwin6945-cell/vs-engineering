@@ -275,10 +275,10 @@ export default function CustomerDashboardPage() {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-2 border-b border-steel-200 dark:border-steel-800 text-sm font-mono font-medium">
+        <div className="flex items-center gap-1 sm:gap-2 border-b border-steel-200 dark:border-steel-800 text-xs sm:text-sm font-mono font-medium overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveTab("orders")}
-            className={`pb-3 px-3 transition-colors relative ${
+            className={`pb-3 px-3 transition-colors relative whitespace-nowrap shrink-0 ${
               activeTab === "orders"
                 ? "text-orange-500 border-b-2 border-orange-500 font-bold"
                 : "text-steel-600 dark:text-steel-400 hover:text-navy-900 dark:hover:text-white"
@@ -288,7 +288,7 @@ export default function CustomerDashboardPage() {
           </button>
           <button
             onClick={() => setActiveTab("quotes")}
-            className={`pb-3 px-3 transition-colors relative ${
+            className={`pb-3 px-3 transition-colors relative whitespace-nowrap shrink-0 ${
               activeTab === "quotes"
                 ? "text-orange-500 border-b-2 border-orange-500 font-bold"
                 : "text-steel-600 dark:text-steel-400 hover:text-navy-900 dark:hover:text-white"
@@ -298,7 +298,7 @@ export default function CustomerDashboardPage() {
           </button>
           <button
             onClick={() => setActiveTab("payments")}
-            className={`pb-3 px-3 transition-colors relative ${
+            className={`pb-3 px-3 transition-colors relative whitespace-nowrap shrink-0 ${
               activeTab === "payments"
                 ? "text-orange-500 border-b-2 border-orange-500 font-bold"
                 : "text-steel-600 dark:text-steel-400 hover:text-navy-900 dark:hover:text-white"
@@ -308,7 +308,7 @@ export default function CustomerDashboardPage() {
           </button>
           <button
             onClick={() => setActiveTab("profile")}
-            className={`pb-3 px-3 transition-colors relative ${
+            className={`pb-3 px-3 transition-colors relative whitespace-nowrap shrink-0 ${
               activeTab === "profile"
                 ? "text-orange-500 border-b-2 border-orange-500 font-bold"
                 : "text-steel-600 dark:text-steel-400 hover:text-navy-900 dark:hover:text-white"

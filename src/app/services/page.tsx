@@ -139,15 +139,15 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-steel-100 dark:border-steel-800">
-                    <Link href={`/quote?service=${svc.id}`}>
-                      <Button variant="orange" size="md">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-steel-100 dark:border-steel-800">
+                    <Link href={`/quote?service=${svc.id}`} className="w-full sm:w-auto">
+                      <Button variant="orange" size="md" className="w-full justify-center">
                         <FileText className="w-4 h-4 mr-1.5" />
                         Request Quote for this Service
                       </Button>
                     </Link>
-                    <Link href="/gallery">
-                      <Button variant="outline" size="md">
+                    <Link href="/gallery" className="w-full sm:w-auto">
+                      <Button variant="outline" size="md" className="w-full justify-center">
                         View Samples in Gallery
                       </Button>
                     </Link>

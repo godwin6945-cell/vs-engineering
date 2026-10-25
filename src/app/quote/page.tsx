@@ -661,9 +661,55 @@ export default function QuoteWizardPage() {
                     </div>
                   </div>
                 ) : (
-                  <p className="text-xs text-steel-400 italic text-center">
-                    Note: If you don&apos;t have CAD files right now, you can proceed and email them later.
-                  </p>
+                  <div className="space-y-4 pt-2">
+                    <p className="text-xs text-steel-400 italic text-center">
+                      Note: If you don&apos;t have CAD files ready right now, you can proceed and email them later.
+                    </p>
+
+                    {/* Visual Drawing Types Guide */}
+                    <div className="pt-2 border-t border-steel-100 dark:border-steel-800">
+                      <span className="text-xs font-mono uppercase tracking-wider text-steel-500 font-bold block mb-2.5">
+                        Accepted Engineering Drawing Formats:
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="p-3 rounded-lg border border-steel-200 dark:border-steel-800 bg-white dark:bg-navy-900 flex items-center gap-3">
+                          <img
+                            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=120&q=80"
+                            alt="2D Production Blueprint"
+                            className="w-12 h-12 rounded object-cover border border-steel-200 dark:border-steel-700 shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <span className="font-bold text-xs text-navy-900 dark:text-white block truncate">2D Blueprints</span>
+                            <span className="text-[10px] text-steel-400 font-mono block">PDF, DWG, DXF with GD&T</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg border border-steel-200 dark:border-steel-800 bg-white dark:bg-navy-900 flex items-center gap-3">
+                          <img
+                            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=120&q=80"
+                            alt="3D Solid Model"
+                            className="w-12 h-12 rounded object-cover border border-steel-200 dark:border-steel-700 shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <span className="font-bold text-xs text-navy-900 dark:text-white block truncate">3D Solid Models</span>
+                            <span className="text-[10px] text-steel-400 font-mono block">STEP (.stp), IGES (.igs)</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg border border-steel-200 dark:border-steel-800 bg-white dark:bg-navy-900 flex items-center gap-3">
+                          <img
+                            src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=120&q=80"
+                            alt="Laser Cutting Vectors"
+                            className="w-12 h-12 rounded object-cover border border-steel-200 dark:border-steel-700 shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <span className="font-bold text-xs text-navy-900 dark:text-white block truncate">Sheet Metal Vectors</span>
+                            <span className="text-[10px] text-steel-400 font-mono block">DXF 1:1 Scale Flat Patterns</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 )}
               </div>
             )}

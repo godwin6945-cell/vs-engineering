@@ -179,7 +179,7 @@ export default function AdminOrdersPage() {
           />
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs font-mono overflow-x-auto pb-1 sm:pb-0">
+        <div className="flex items-center gap-1.5 text-xs font-mono overflow-x-auto no-scrollbar pb-1 sm:pb-0">
           {["ALL", ...STAGES].map((st) => (
             <button
               key={st}

@@ -136,7 +136,7 @@ export default function AdminPaymentsPage() {
           />
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs font-mono">
+        <div className="flex items-center gap-1.5 text-xs font-mono overflow-x-auto no-scrollbar pb-1 sm:pb-0">
           {["ALL", "PENDING_VERIFICATION", "PAID", "REJECTED"].map((st) => (
             <button
               key={st}

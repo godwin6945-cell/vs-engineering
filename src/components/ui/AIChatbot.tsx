@@ -110,23 +110,24 @@ export function AIChatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-navy-900 to-orange-600 text-white shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 group animate-pulse-subtle"
+          className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 z-40 flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-3 rounded-full bg-gradient-to-r from-navy-900 to-orange-600 text-white shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 group animate-pulse-subtle"
           aria-label="Open AI Engineering Consultant"
         >
-          <div className="w-8 h-8 rounded-full bg-white text-navy-900 flex items-center justify-center font-bold relative shadow-xs">
-            <Bot className="w-5 h-5 text-orange-500" />
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-navy-900 animate-ping" />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-navy-900 flex items-center justify-center font-bold relative shadow-xs shrink-0">
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 rounded-full border-2 border-navy-900 animate-ping" />
           </div>
-          <div className="text-left font-mono pr-1">
+          <div className="text-left font-mono pr-1 hidden sm:block">
             <span className="text-[11px] block font-bold leading-tight">AI Technical Bot</span>
             <span className="text-[9px] text-orange-200 block">Ask anything 24/7</span>
           </div>
+          <span className="font-mono text-xs font-bold sm:hidden pr-1">Ask AI</span>
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[92vw] sm:w-[420px] h-[550px] max-h-[85vh] bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-steel-200 dark:border-steel-800 flex flex-col overflow-hidden animate-slideUp">
+        <div className="fixed inset-x-2 bottom-2 top-14 sm:top-auto sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[420px] sm:h-[550px] max-h-[92vh] sm:max-h-[85vh] z-50 bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-steel-200 dark:border-steel-800 flex flex-col overflow-hidden animate-slideUp">
           {/* Header */}
           <div className="bg-navy-950 text-white p-4 flex items-center justify-between border-b border-navy-800">
             <div className="flex items-center gap-3">

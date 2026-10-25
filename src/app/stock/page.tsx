@@ -84,10 +84,36 @@ export default function StockCatalogPage() {
       description: "Precision CNC milled ductile iron manifold block with standard ISO 4401-03 mounting pattern and cavity testing.",
       quantity: 15,
       unit: "Units",
-      price: null, // Price on request
+      price: 12500,
       leadTime: "Ready in Warehouse",
       image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
       specs: ["Max Pressure: 315 Bar", "Port Size: G 3/8\" BSPP", "Surface: Black Phosphated"]
+    },
+    {
+      id: "stk-05",
+      sku: "VSE-STK-BRONZE-BUSH-80",
+      title: "Phosphor Bronze Self-Lubricating Bushings (Ø80mm x 120mm)",
+      category: "Raw Material & Spares",
+      description: "SAE 660 continuous cast bronze bushings with spiral internal oil grooves for heavy pivot pins.",
+      quantity: 40,
+      unit: "Pieces",
+      price: 1850,
+      leadTime: "Immediate Dispatch (24h)",
+      image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80",
+      specs: ["Bore: Ø 80 mm ±0.015", "Material: CuSn8 Phosphor Bronze", "Grease Groove: Dual Figure-8"]
+    },
+    {
+      id: "stk-06",
+      sku: "VSE-STK-LASER-GUSSET-10",
+      title: "Pre-Cut Laser Gussets & Mounting Ribs (10mm MS IS2062)",
+      category: "Structural Fabrication",
+      description: "Fiber laser cut structural gussets with chamfered weld prep edges for automated machine frame stiffening.",
+      quantity: 250,
+      unit: "Pieces",
+      price: 320,
+      leadTime: "Immediate Dispatch",
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+      specs: ["Plate: 10 mm IS 2062 Grade B", "Edge: 35° Bevel Prepped", "Surface: Shot blasted SA 2.5"]
     }
   ];
 
@@ -129,7 +155,7 @@ export default function StockCatalogPage() {
                 className="w-full pl-10 pr-4 py-2 text-sm bg-steel-50 dark:bg-navy-900 border border-steel-200 dark:border-steel-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500/20 text-steel-900 dark:text-white"
               />
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
               {categories.map((c) => (
                 <button
                   key={c}
