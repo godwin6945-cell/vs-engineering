@@ -228,7 +228,7 @@ export default function AdminDashboardPage() {
     <div className="min-h-screen bg-steel-50 dark:bg-navy-950 py-8 px-4 sm:px-6 lg:px-8 transition-colors">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Top Header */}
-        <div className="bg-white dark:bg-navy-900 rounded-xl border border-steel-200 dark:border-steel-800 p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="bg-white dark:bg-navy-900 rounded-xl border border-steel-200 dark:border-steel-800 p-4 sm:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center font-display font-black text-2xl shadow-md">
               VS
@@ -259,7 +259,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* 4 Primary KPI Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <Link href="/admin/quotes">
             <Card className="p-5 hover:border-orange-500/60 transition-all cursor-pointer">
               <div className="flex items-center justify-between">
@@ -326,7 +326,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Quick Navigation Panels */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
           <Link
             href="/admin/quotes"
             className="p-4 rounded-xl bg-white dark:bg-navy-900 border border-steel-200 dark:border-steel-800 shadow-sm hover:border-orange-500/60 transition-all flex items-center justify-between group"
