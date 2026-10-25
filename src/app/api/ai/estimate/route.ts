@@ -56,7 +56,14 @@ export async function POST(req: Request) {
     const estimatedGst = Math.round(subtotal * 0.18);
     const estimatedTotal = subtotal + estimatedGst;
 
-    let geminiDfmInsights = dfmInsights;
+    const defaultDfmInsights = [
+      "Apply 5-7° draft angles to all vertical walls to ensure clean ejection and reduce surface finish issues.",
+      "Maintain minimum 1.5x tool diameter wall-to-wall spacing to prevent tool deflection and vibration at high feeds.",
+      "Specify surface finish Ra ≤ 1.6µm only on functional mating surfaces — over-specifying Ra increases cycle time by 30-40%.",
+      "Use chamfers (1x45°) instead of sharp internal corners to reduce stress concentration and tool chatter."
+    ];
+
+    let geminiDfmInsights = defaultDfmInsights;
     let geminiTooling = "Solid Carbide Endmills + TiAlN Inserts with High-Pressure Coolant";
 
     // Call Google Gemini API if key is present
@@ -79,7 +86,7 @@ Provide exactly 4 concise, high-value DFM (Design for Manufacturability) insight
 }`;
 
         const geminiRes = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiApiKey}`,
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
