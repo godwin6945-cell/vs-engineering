@@ -100,7 +100,7 @@ export default function ServicesPage() {
               id={svc.id}
               className="bg-white dark:bg-navy-950 border border-steel-200 dark:border-steel-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-10 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 p-5 lg:p-10 items-start lg:items-center">
                 <div className="lg:col-span-7 space-y-6">
                   <div>
                     <span className="text-xs font-mono uppercase tracking-widest text-orange-500 font-bold">
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Technical Specifications */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-2">
                     {svc.specs.map((s, i) => (
                       <div key={i} className="p-3 rounded-lg bg-steel-50 dark:bg-navy-900 border border-steel-100 dark:border-steel-800">
                         <span className="text-[11px] font-mono text-steel-500 uppercase block">{s.label}</span>
@@ -154,12 +154,12 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5">
+                <div className="lg:col-span-5 mt-2 lg:mt-0">
                   <div className="rounded-xl overflow-hidden border border-steel-200 dark:border-steel-800 shadow-md">
                     <img
                       src={svc.image}
                       alt={svc.title}
-                      className="w-full h-80 object-cover"
+                      className="w-full h-48 sm:h-64 lg:h-80 object-cover"
                     />
                   </div>
                 </div>

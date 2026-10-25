@@ -152,3 +152,34 @@ html {
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ─── Mobile layout fixes ─── */
+/* Prevent flex/grid children from overflowing their container */
+.grid > * {
+  min-width: 0;
+}
+.flex > * {
+  min-width: 0;
+}
+
+/* Allow long words (spec values, part numbers) to break on mobile */
+@media (max-width: 640px) {
+  .font-mono {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  /* Section padding on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Slide-up animation for chatbot */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideUp {
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

@@ -96,8 +96,8 @@ export default function HomePage() {
         {/* Subtle technical grid lines */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-900/90 border border-orange-500/30 text-orange-400 text-xs font-mono uppercase tracking-wider">
@@ -137,7 +137,7 @@ export default function HomePage() {
               </div>
 
               {/* Trust Badges */}
-              <div className="pt-6 border-t border-navy-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="pt-6 border-t border-navy-800/80 grid grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <div className="text-2xl font-mono font-bold text-orange-400">±0.005mm</div>
                   <div className="text-xs text-steel-400">Precision Tolerance</div>
@@ -158,7 +158,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Card / Machine Blueprint visual */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 hidden lg:block">
               <div className="relative rounded-2xl bg-gradient-to-b from-navy-900 to-navy-950 p-6 border border-steel-700/60 shadow-2xl overflow-hidden group">
                 <div className="flex items-center justify-between pb-4 border-b border-steel-800 text-xs font-mono text-steel-400">
                   <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
             {capabilities.map((cap, idx) => (
               <Card key={idx} className="group hover:border-orange-500/50 hover:shadow-xl hover-lift transition-smooth">
                 <div className="relative aspect-[16/9] overflow-hidden bg-steel-900">
@@ -287,24 +287,24 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {workflowSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="relative bg-steel-50/70 dark:bg-navy-900/80 border border-steel-200 dark:border-steel-800 rounded-xl p-6 space-y-3 shadow-sm hover:border-orange-500/40 hover-lift transition-smooth"
+                className="relative bg-steel-50/70 dark:bg-navy-900/80 border border-steel-200 dark:border-steel-800 rounded-xl p-4 sm:p-6 space-y-2 sm:space-y-3 shadow-sm hover:border-orange-500/40 hover-lift transition-smooth"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-3xl font-black text-orange-500/80">
+                  <span className="font-mono text-2xl sm:text-3xl font-black text-orange-500/80">
                     {step.step}
                   </span>
-                  <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-white dark:bg-navy-950 border border-steel-200 dark:border-steel-700 text-steel-600 dark:text-steel-300">
+                  <span className="text-[10px] sm:text-[11px] font-mono font-medium px-1.5 sm:px-2 py-0.5 rounded bg-white dark:bg-navy-950 border border-steel-200 dark:border-steel-700 text-steel-600 dark:text-steel-300 truncate ml-1">
                     {step.time}
                   </span>
                 </div>
-                <h3 className="text-base font-display font-bold text-navy-900 dark:text-steel-100">
+                <h3 className="text-sm sm:text-base font-display font-bold text-navy-900 dark:text-steel-100 leading-snug">
                   {step.title}
                 </h3>
-                <p className="text-xs text-steel-600 dark:text-steel-400 leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-steel-600 dark:text-steel-400 leading-relaxed hidden sm:block">
                   {step.desc}
                 </p>
               </div>
@@ -324,7 +324,7 @@ export default function HomePage() {
       {/* Why Choose VS Engineering */}
       <section className="py-20 bg-steel-50 dark:bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-2">
                 <Badge variant="orange">Standard of Excellence</Badge>
@@ -382,7 +382,7 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-4">
                   <div className="rounded-xl overflow-hidden border border-steel-200 dark:border-steel-800 shadow-md">
                     <img
@@ -435,7 +435,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
             <div className="group relative rounded-xl overflow-hidden border border-navy-800 aspect-[4/3] bg-navy-900">
               <img
                 src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
@@ -497,7 +497,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             <Card className="p-6 space-y-4 hover-lift transition-smooth">
               <div className="text-orange-500 font-mono text-sm">★★★★★</div>
               <p className="text-sm text-steel-700 dark:text-steel-300 leading-relaxed italic">

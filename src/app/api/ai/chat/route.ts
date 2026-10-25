@@ -75,7 +75,7 @@ INSTRUCTION: You are replying directly to the Customer's latest message: "${last
 Provide a polite, highly informative, and technically authoritative answer. If they ask about materials, pricing, capabilities, orders, or contact, give specific figures and next steps. Do not repeat greeting intros if already in conversation.`;
 
         const geminiRes = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`,
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
