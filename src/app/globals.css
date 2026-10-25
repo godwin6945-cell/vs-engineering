@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 215 67% 14%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 23 88% 53%;
+    --accent-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    --accent: 23 88% 53%;
+    --accent-foreground: 0 0% 100%;
+    --border: 217 33% 20%;
+  }
+}
+
+body {
+  color: rgb(15 23 42);
+  background: #f8fafc;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+.dark body {
+  color: rgb(241 245 249);
+  background: #061121;
+}
+
+/* Engineering Blueprint Pattern */
+.blueprint-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(11, 31, 58, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 31, 58, 0.05) 1px, transparent 1px);
+}
+
+.dark .blueprint-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.blueprint-grid-dense {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(242, 107, 29, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 107, 29, 0.08) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0b1f3a;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f26b1d;
+}
+
+/* Animation utilities */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.94; transform: scale(1.015); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glowOrange {
+  0%, 100% { box-shadow: 0 0 15px rgba(242, 107, 29, 0.2); }
+  50% { box-shadow: 0 0 28px rgba(242, 107, 29, 0.45); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowOrange 3s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+}
+
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

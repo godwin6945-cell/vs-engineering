@@ -1,0 +1,322 @@
+// Prisma Schema for VS Engineering
+// Market: India (INR, GSTIN, HSN, State/IGST, Asia/Kolkata)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  passwordHash String
+  name         String
+  role         String         @default("CUSTOMER") // ADMIN | CUSTOMER
+  phone        String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  customer     Customer?
+  auditLogs    AuditLog[]
+  notifications Notification[]
+}
+
+model Customer {
+  id          String     @id @default(uuid())
+  userId      String     @unique
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName String?
+  gstin       String?
+  pan         String?
+  state       String     @default("Tamil Nadu")
+  city        String?
+  pincode     String?
+  address     String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  quotes      Quote[]
+  orders      Order[]
+  payments    Payment[]
+  invoices    Invoice[]
+}
+
+model ProductService {
+  id             String   @id @default(uuid())
+  code           String   @unique
+  name           String
+  category       String
+  leadTimeDays   Int      @default(7)
+  baseHourlyRate Float    @default(1200)
+  description    String?
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+}
+
+model Quote {
+  id             String      @id @default(uuid())
+  quoteNumber    String      @unique // e.g. VSE-Q-2026-0001
+  customerId     String?
+  customer       Customer?   @relation(fields: [customerId], references: [id])
+  guestName      String?
+  guestEmail     String?
+  guestPhone     String?
+  guestCompany   String?
+  guestGstin     String?
+  status         String      @default("SUBMITTED") // SUBMITTED | UNDER_REVIEW | QUOTED | ACCEPTED | REJECTED | EXPIRED
+  serviceType    String      // CNC | FABRICATION | LASER | SPARES
+  material       String
+  quantity       Int         @default(1)
+  dimensions     String?
+  tolerance      String?
+  finish         String?
+  requiredByDate DateTime?
+  deliveryCity   String?
+  deliveryState  String      @default("Tamil Nadu")
+  deliveryPincode String?
+  notes          String?
+  subtotal       Float       @default(0)
+  cgst           Float       @default(0)
+  sgst           Float       @default(0)
+  igst           Float       @default(0)
+  totalAmount    Float       @default(0)
+  validityDays   Int         @default(15)
+  expiresAt      DateTime?
+  adminNotes     String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  items          QuoteItem[]
+  files          QuoteFile[]
+  orders         Order[]
+}
+
+model QuoteItem {
+  id          String   @id @default(uuid())
+  quoteId     String
+  quote       Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  description String
+  hsnCode     String   @default("8466")
+  quantity    Int      @default(1)
+  unitPrice   Float    @default(0)
+  gstRate     Float    @default(18)
+  total       Float    @default(0)
+}
+
+model QuoteFile {
+  id         String   @id @default(uuid())
+  quoteId    String
+  quote      Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  fileName   String
+  fileUrl    String
+  fileType   String
+  fileSize   Int      @default(0)
+  uploadedAt DateTime @default(now())
+}
+
+model Order {
+  id                String               @id @default(uuid())
+  orderNumber       String               @unique // e.g. VSE-ORD-2026-0001
+  quoteId           String?
+  quote             Quote?               @relation(fields: [quoteId], references: [id])
+  customerId        String
+  customer          Customer             @relation(fields: [customerId], references: [id])
+  status            String               @default("CONFIRMED") // CONFIRMED | IN_PRODUCTION | QUALITY_CHECK | PACKED | DISPATCHED | DELIVERED | CANCELLED
+  paymentStatus     String               @default("UNPAID")    // UNPAID | ADVANCE_PAID | FULLY_PAID
+  totalAmount       Float
+  advanceRequired   Float                @default(0)
+  advancePaid       Float                @default(0)
+  balanceDue        Float                @default(0)
+  estimatedDelivery DateTime?
+  notes             String?
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
+  items             OrderItem[]
+  statusHistory     OrderStatusHistory[]
+  photos            OrderPhoto[]
+  dispatchDetail    DispatchDetail?
+  payments          Payment[]
+  invoices          Invoice[]
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  description String
+  hsnCode     String   @default("8466")
+  quantity    Int      @default(1)
+  unitPrice   Float
+  gstRate     Float    @default(18)
+  total       Float
+}
+
+model OrderStatusHistory {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    String
+  note      String?
+  changedBy String   @default("Admin Team")
+  createdAt DateTime @default(now())
+}
+
+model OrderPhoto {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  caption   String
+  photoUrl  String
+  stage     String   @default("IN_PRODUCTION")
+  createdAt DateTime @default(now())
+}
+
+model DispatchDetail {
+  id              String    @id @default(uuid())
+  orderId         String    @unique
+  order           Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  transporterName String    // e.g. V-Trans, TCI Freight, Safexpress
+  lrNumber        String    // Lorry Receipt / Consignment Note No.
+  vehicleNumber   String?   // e.g. TN-05-AB-1234
+  eWayBillNumber  String?   // Indian GST E-Way Bill Number (12-digit)
+  dispatchDate    DateTime  @default(now())
+  deliveredDate   DateTime?
+  trackingUrl     String?
+}
+
+model Payment {
+  id              String    @id @default(uuid())
+  paymentNumber   String    @unique // e.g. VSE-PAY-2026-0001
+  orderId         String
+  order           Order     @relation(fields: [orderId], references: [id])
+  customerId      String
+  customer        Customer  @relation(fields: [customerId], references: [id])
+  amount          Float
+  paymentType     String    @default("ADVANCE") // ADVANCE | BALANCE
+  paymentMethod   String    @default("BANK_TRANSFER") // BANK_TRANSFER | UPI | CHEQUE
+  utrNumber       String    // UTR / IMPS / UPI Transaction Ref
+  paymentDate     DateTime  @default(now())
+  screenshotUrl   String?
+  status          String    @default("PENDING_VERIFICATION") // PENDING_VERIFICATION | PAID | REJECTED
+  rejectionReason String?
+  verifiedBy      String?
+  verifiedAt      DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Invoice {
+  id            String        @id @default(uuid())
+  invoiceNumber String        @unique // e.g. VSE-INV-2026-0001
+  orderId       String
+  order         Order         @relation(fields: [orderId], references: [id])
+  customerId    String
+  customer      Customer      @relation(fields: [customerId], references: [id])
+  invoiceDate   DateTime      @default(now())
+  dueDate       DateTime
+  placeOfSupply String        @default("Tamil Nadu (33)")
+  isInterState  Boolean       @default(false)
+  subtotal      Float
+  cgst          Float         @default(0)
+  sgst          Float         @default(0)
+  igst          Float         @default(0)
+  totalAmount   Float
+  amountInWords String
+  pdfUrl        String?
+  status        String        @default("ISSUED") // ISSUED | PAID | CANCELLED
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  items         InvoiceItem[]
+}
+
+model InvoiceItem {
+  id          String   @id @default(uuid())
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  description String
+  hsnCode     String   @default("8466")
+  quantity    Int      @default(1)
+  unit        String   @default("Nos")
+  unitPrice   Float
+  gstRate     Float    @default(18)
+  taxAmount   Float
+  totalAmount Float
+}
+
+model StockItem {
+  id          String   @id @default(uuid())
+  sku         String   @unique
+  title       String
+  description String
+  category    String
+  imageUrl    String
+  quantity    Int      @default(1)
+  unit        String   @default("Pieces")
+  price       Float?   // null for 'on request'
+  isAvailable Boolean  @default(true)
+  leadTime    String   @default("24-48 Hours")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Enquiry {
+  id              String   @id @default(uuid())
+  referenceNumber String   @unique
+  name            String
+  email           String
+  phone           String
+  company         String?
+  subject         String
+  message         String
+  status          String   @default("NEW") // NEW | IN_PROGRESS | RESOLVED
+  createdAt       DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   @default("INFO") // INFO | SUCCESS | WARNING
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  details   String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+model MaterialRate {
+  id                   String   @id @default(uuid())
+  name                 String   @unique
+  category             String   // Ferrous | Stainless | Non-Ferrous | Tool Steel | Superalloy
+  pricePerKg           Float    // ₹ per kg
+  machiningRatePerHour Float    // ₹ per hour
+  density              Float    @default(7.85) // g/cm³
+  hsnCode              String   @default("7218")
+  inStock              Boolean  @default(true)
+  stockQuantityKg      Float    @default(1000)
+  notes                String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
