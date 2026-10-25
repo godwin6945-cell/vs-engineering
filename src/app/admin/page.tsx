@@ -38,8 +38,8 @@ export default function AdminDashboardPage() {
   const [payments, setPayments] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState<string | null>(null);
-  const [adminEmail, setAdminEmail] = useState("godwin6945@gmail.com");
-  const [adminPassword, setAdminPassword] = useState("godwin@2007");
+  const [adminEmail, setAdminEmail] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [needsAuth, setNeedsAuth] = useState(false);
 
@@ -184,7 +184,7 @@ export default function AdminDashboardPage() {
                 required
                 value={adminEmail}
                 onChange={(e) => setAdminEmail(e.target.value)}
-                placeholder="godwin6945@gmail.com"
+                placeholder="admin@company.com"
                 className="w-full px-3 py-2 rounded-lg bg-steel-50 dark:bg-navy-950 border border-steel-300 dark:border-steel-700 text-steel-900 dark:text-white"
               />
             </div>

@@ -43,16 +43,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🔑 Demo Accounts & Credentials
+## 🔑 Authentication
 
-Use the **Quick Demo Switcher** directly on the [Login Page](/login) to sign in with one click, or use the credentials below:
-
-| Role | Name & Company | Email | Password | Access Area |
-| :--- | :--- | :--- | :--- | :--- |
-| **Admin** | Suresh Ramanathan (VS Engineering Team) | `admin@vsengineering.com` | `AdminPassword123!` | `/admin` |
-| **Customer 1** | Rajesh Kulkarni (Precision Auto Components, Pune, MH) | `rajesh@precisionauto.in` | `Customer123!` | `/dashboard` |
-| **Customer 2** | Vikram Menon (AeroTech Dynamics, Bengaluru, KA) | `vikram@aerotechindia.com` | `Customer123!` | `/dashboard` |
-| **Customer 3** | Ananya Deshmukh (Heavy Infra Mining, Coimbatore, TN) | `ananya@heavyinfra.co.in` | `Customer123!` | `/dashboard` |
+Access the customer portal at `/login` or the administrative desk at `/admin` using your secure registered credentials.
 
 ---
 
